@@ -52,7 +52,9 @@ function initializeServiceWorker() {
       // B3. TODO - Register './sw.js' as a service worker (The MDN article
       //            "Using Service Workers" will help you here)
       try {
-        const registration = await navigator.serviceWorker.register("./sw.js");
+        const registration = await navigator.serviceWorker.register("sw.js", {
+          scope: ".",
+        });
         if (registration.installing) {
           console.log("Service worker installing");
         } else if (registration.waiting) {
