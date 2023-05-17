@@ -48,7 +48,7 @@ self.addEventListener('fetch', function (event) {
       // B8. TODO - If the request is in the cache, return with the cached version.
       //            Otherwise fetch the resource, add it to the cache, and return
       //            network response.
-      return cachedResponse || fetch(event.request.url, {mode: 'no-cors'}).then((fetchedResponse) => {
+      return cachedResponse || fetch(event.request, {mode: 'no-cors'}).then((fetchedResponse) => {
         cache.put(event.request, fetchedResponse.clone());
         return fetchedResponse;
       })
